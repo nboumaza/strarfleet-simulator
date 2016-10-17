@@ -9,15 +9,16 @@ import driver.Simulator;
 
 public class Ship {
 
+	//valid list of commands
 	private static final List<String> MOVE_CMDS = Arrays.asList("north", "south", "east", "west");
 	private static final List<String> FIRE_CMDS = Arrays.asList("alpha", "beta", "gamma", "delta");
-
+	
 	private final Field field;
 	private int x, y, z;
 	private int movesCount, shotsCount;
 
-	public Ship(Field field) {
-		this.field = field;
+	public Ship(Field f) {
+		field = f;
 		initialize();
 	}
 
@@ -25,13 +26,15 @@ public class Ship {
 		// position in the center of the field
 		z = 0;
 		x = field.getDimensionX() / 2;
-		y = field.getDimensionX() / 2;
+		y = field.getDimensionY() / 2;
 		movesCount = 0;
 		shotsCount = 0;
 	}
 
 	/**
-	 * For each commandLine command, executes a navigation or firing strategy
+	 * For each command executes a navigation or firing strategy
+	 * if a given command is not from the valid list of moves or 
+	 * firing strategy the simulator execution terminates.
 	 * 
 	 * @param commands
 	 *            command list
@@ -122,6 +125,7 @@ public class Ship {
 		shotsCount += 1;
 	}
 
+	
 	private List<Integer> binaryConcat(Stream<Integer> stream, Stream<Integer> stream2) {
 		return Stream.concat(stream, stream2).collect(Collectors.toList());
 	}
