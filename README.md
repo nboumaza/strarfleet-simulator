@@ -11,8 +11,8 @@ Please refer to for the complete description:
 
 # Solution Overview
 
-	TODO... will enclose a high level UML very soon
-
+![Alt text](/starfleet/src/main/resources/uml/starfleet.png?raw=true "UML Diagram")
+	
 
 # Prerequisites to Building
 
